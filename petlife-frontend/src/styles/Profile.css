@@ -1,0 +1,91 @@
+/* Geral */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Para evitar scroll lateral */
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: auto; /* Permitir que a área do perfil possa rolar se necessário */
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #666;
+}
+
+.appointments-list {
+    margin-top: 30px;
+    max-height: 400px; /* Limite para a lista de consultas */
+    overflow-y: auto; /* Scroll apenas na lista de consultas, se necessário */
+}
+
+.appointment-item {
+    padding: 15px;
+    border: 2px solid #ff7f50;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.appointment-item:hover {
+    transform: translateY(-5px);
+}
+
+.appointment-item strong {
+    color: #2c3e50;
+}
+
+.no-appointments {
+    font-size: 1.2rem;
+    color: #999;
+    margin-top: 20px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.botao:hover {
+    background-color: #e06a3f;
+}
+
+.profile-container:hover {
+    transform: translateY(-10px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 20px;
+    }
+
+    .appointment-item {
+        padding: 10px;
+    }
+}
