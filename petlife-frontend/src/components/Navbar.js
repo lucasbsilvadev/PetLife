@@ -6,9 +6,9 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove o token para deslogar o usuário
-    setIsAuthenticated(false); // Atualiza o estado para false após o logout
-    navigate('/'); // Redireciona para a página inicial
+    localStorage.removeItem('token');
+    setIsAuthenticated(false); 
+    navigate('/'); 
   };
 
   return (

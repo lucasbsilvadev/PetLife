@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/StartSection.css'; // Certifique-se de ter um arquivo CSS para os estilos
+import '../styles/StartSection.css'; 
 
 const StartSection = () => {
   return (
@@ -12,7 +12,6 @@ const StartSection = () => {
           o bem-estar, a saúde e a felicidade dos seus animais de estimação.
         </p>
         <a className="botao" href="https://wa.me/5522987654321" target="_blank" rel="noreferrer">Entre em contato conosco!</a>
-        <a className="botao-transparente">Conheça nossa clínica</a>
       </div>
       <img src="/assets/img/start-img.svg" alt="Imagem de um pet" width="580" height="580" className="section-image"/>
     </section>

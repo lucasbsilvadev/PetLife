@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import '../styles/Auth.css'; // Importa o arquivo CSS
+import '../styles/Auth.css';
 
 const Register = () => {
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState(''); // Adiciona o estado para email
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            await api.post('/users/register', { email, username, password }); // Atualiza o objeto enviado
-            window.location.href = '/login';
+            await api.post('/users/register', { email, username, password });
+            navigate('/login'); 
         } catch (err) {
-            setError('Erro ao registrar usuário.');
+            setError('Erro ao registrar usuário. Por favor, tente novamente.');
         }
     };
 
@@ -24,9 +26,9 @@ const Register = () => {
             {error && <p className="auth-error">{error}</p>}
             <form className="auth-form" onSubmit={handleRegister}>
                 <input
-                    type="email" // Altera para type="email"
+                    type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)} // Adiciona onChange para email
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     required
                     className="auth-input"

@@ -24,16 +24,21 @@ const AppointmentForm = () => {
     e.preventDefault();
     console.log('Dados enviados:', formData); 
     try {
-        const token = localStorage.getItem('token');
-        const response = await api.post('/appointments', formData, { // Corrigido aqui
-            headers: { Authorization: `Bearer ${token}` }
-        });
-        setMessage({ type: 'success', text: 'Consulta agendada com sucesso!' });
+      const token = localStorage.getItem('token');
+      const response = await api.post('/appointments', formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setMessage({ type: 'success', text: 'Consulta agendada com sucesso!' });
     } catch (err) {
-        console.error('Erro ao agendar consulta:', err); 
-        setMessage({ type: 'error', text: 'Erro ao agendar consulta. Tente novamente.' });
+      console.error('Erro ao agendar consulta:', err);
+      if (err.response) {
+        setMessage({ type: 'error', text: err.response.data.error || 'Erro desconhecido. Tente novamente.' });
+      } else {
+        setMessage({ type: 'error', text: 'Erro ao agendar consulta. Tente novamente mais tarde.' });
+      }
     }
-};
+  };
+
   return (
     <div className="form-container">
       <h2>Agende uma Consulta</h2>
@@ -93,13 +98,20 @@ const AppointmentForm = () => {
           onChange={handleChange}
           required
         />
-        <input
-          type="time"
-          name="time"
-          value={formData.time}
-          onChange={handleChange}
-          required
-        />
+       <select
+  name="time"
+  value={formData.time}
+  onChange={handleChange}
+  required
+>
+  <option value="">Selecione um horário</option>
+  <option value="10:00">10:00 - 11:00</option>
+  <option value="11:00">11:00 - 12:00</option>
+  <option value="13:00">13:00 - 14:00</option>
+  <option value="14:00">14:00 - 15:00</option>
+  <option value="15:00">15:00 - 16:00</option>
+  <option value="16:00">16:00 - 17:00</option>
+</select>
         <button type="submit" className="botao">Agendar</button>
       </form>
     </div>

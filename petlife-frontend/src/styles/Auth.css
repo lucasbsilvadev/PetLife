@@ -1,5 +1,5 @@
 .auth-container {
-    max-width: 400px; /* Limite a largura do formulário */
+    /* max-width: 400px; Limite a largura do formulário */
     margin: auto; /* Centraliza o formulário */
     padding: 20px;
     border-radius: 5px;

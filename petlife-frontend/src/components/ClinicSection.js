@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AppointmentForm from './AppointmentForm'; // Importa o componente
+import AppointmentForm from './AppointmentForm'; 
 
 const ClinicSection = () => {
   const [showForm, setShowForm] = useState(false);
@@ -12,7 +12,7 @@ const ClinicSection = () => {
           Na PetLife, a clínica é equipada com a mais alta tecnologia e com uma equipe especializada. Cuidamos
           da saúde do seu pet de forma completa, desde consultas rotineiras até tratamentos mais avançados.
         </p>
-        <button className="botao" onClick={() => setShowForm(true)}>Veja nossos serviços</button>
+        <button className="botao" onClick={() => setShowForm(true)}>Faça um agendamento</button>
       </div>
       <img src="/assets/img/clinic-img.svg" alt="Imagem da clínica" width="580" height="580" className="section-image" />
       {showForm && <AppointmentForm />} {/* Exibe o formulário quando showForm é true */}

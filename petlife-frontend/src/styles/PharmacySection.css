@@ -11,13 +11,14 @@
   }
   
   .text-content {
-    max-width: 50%;
+    max-width: 45%; /* Ajustar conforme necessário */
+    flex-grow: 1;
   }
   
   .section-image {
-    max-width: 50%;
-    height: auto;
-  }
+    max-width: 45%; /* Ajustar conforme necessário */
+    flex-grow: 1;
+  }  
   
   h1 {
     font-size: 2.5rem;
@@ -76,5 +77,66 @@
     .section-image {
       margin-top: 20px;
     }
+  }
+  
+  .chatbot {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+    background-color: #f9f9f9;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .chatbot-header {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .chatbot-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  
+  .chat-message {
+    margin: 5px 0;
+  }
+  
+  .chat-message.user {
+    text-align: right;
+    color: #333;
+  }
+  
+  .chat-message.bot {
+    text-align: left;
+    color: #555;
+  }
+  
+  .chatbot-input {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .chatbot-input input {
+    flex: 1;
+    padding: 5px;
+  }
+  
+  .botao-whatsapp {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #25d366;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
   }
   

@@ -1,6 +1,6 @@
 import React from 'react';
 import StartSection from '../components/StartSection';
-import ClinicaSection from '../components/ClinicSection';  // Adicione outras seções conforme necessário
+import ClinicaSection from '../components/ClinicSection'; 
 
 const Home = () => {
   return (

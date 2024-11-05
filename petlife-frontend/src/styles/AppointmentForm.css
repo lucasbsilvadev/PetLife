@@ -1,53 +1,55 @@
 .form-container {
-    max-width: 400px;
-    margin: 20px auto;
-    margin-top: 100px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    color: #2c3e50;
-  }
-  
-  input {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  input:focus {
-    border-color: #ff7f50;
-    outline: none;
-  }
-  
-  .form-success {
-    color: #28a745;
-    text-align: center;
-  }
-  
-  .form-error {
-    color: #dc3545;
-    text-align: center;
-  }
-  
-  .botao {
-    width: 100%;
-    background-color: #ff7f50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .botao:hover {
-    background-color: #e06a3f;
-  }
-  
+  max-width: 400px;
+  margin: 20px auto;
+  margin-top: 100px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+input,
+select {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none; /* Remove a seta padrão do select */
+}
+
+input:focus,
+select:focus {
+  border-color: #ff7f50;
+  outline: none;
+}
+
+.form-success {
+  color: #28a745;
+  text-align: center;
+}
+
+.form-error {
+  color: #dc3545;
+  text-align: center;
+}
+
+.botao {
+  width: 100%;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao:hover {
+  background-color: #e06a3f;
+}

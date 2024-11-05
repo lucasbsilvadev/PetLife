@@ -1,12 +1,15 @@
 const express = require('express');
-const { createAppointment, getAppointments } = require('../controllers/AppointmentController');
-const authenticateToken = require('../middlewares/auth'); // Verifica o token do usuário
+const { createAppointment, getAppointments, updateAppointment, deleteAppointment } = require('../controllers/AppointmentController');
+const authenticateToken = require('../middlewares/auth'); 
 const router = express.Router();
 
 // Rota para agendar consulta
 router.post('/', authenticateToken, createAppointment);
 
-// Rota para listar todas as consultas
 router.get('/', authenticateToken, getAppointments);
+
+router.put('/:id', authenticateToken, updateAppointment);
+
+router.delete('/:id', authenticateToken, deleteAppointment);
 
 module.exports = router;

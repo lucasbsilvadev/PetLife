@@ -1,5 +1,5 @@
-const { Sequelize } = require('sequelize'); // Importando Sequelize
-const sequelize = require('../config/db'); // Ajuste o caminho conforme necessário
+const { Sequelize } = require('sequelize'); 
+const sequelize = require('../config/db'); 
 
 const User = sequelize.define('User', {
     id: {
@@ -10,12 +10,12 @@ const User = sequelize.define('User', {
     username: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true, // Garante que o username seja único
+        unique: true, 
     },
-    email: { // Novo campo para email
+    email: { 
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true, // Garante que o email seja único
+        unique: true, 
     },
     password: {
         type: Sequelize.STRING,
