@@ -1,0 +1,86 @@
+.section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #f7f7f7;
+}
+
+.section-container:nth-child(even) {
+  flex-direction: row-reverse; /* Altera a ordem para seções pares */
+}
+
+.text-content {
+  max-width: 50%;
+}
+
+.section-image {
+  max-width: 50%;
+  height: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.paragrafo {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* Ajustes para garantir que o botão não ocupe toda a largura */
+.botao, .botao-transparente {
+  display: flex; /* Permite que os botões tenham o tamanho do conteúdo */
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-right: 15px;
+  font-size: 1rem;
+  white-space: nowrap; /* Evita quebra de linha dentro do botão */
+}
+
+/* Botão com fundo colorido */
+.botao {
+  background-color: #ff7f50;
+  color: white;
+  border: 2px solid #ff7f50;
+  max-width: 200px; /* Ajusta a largura automaticamente */
+}
+
+.botao:hover {
+  background-color: #e06a3f;
+}
+
+/* Botão com fundo transparente */
+.botao-transparente {
+  background-color: transparent;
+  color: #ff7f50;
+  border: 2px solid #ff7f50;
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+.botao-transparente:hover {
+  background-color: #ff7f50;
+  color: white;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .section-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-content, .section-image {
+    max-width: 100%;
+  }
+
+  .section-image {
+    margin-top: 20px;
+  }
+}

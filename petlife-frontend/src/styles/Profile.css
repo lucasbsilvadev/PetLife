@@ -1,0 +1,111 @@
+.profile-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: auto; /* Permitir que a área do perfil possa rolar se necessário */
+}
+
+.auth-error, .auth-success {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.auth-error {
+    color: #e74c3c; /* Cor do texto de erro */
+    background-color: rgba(231, 76, 60, 0.1); /* Fundo leve */
+}
+
+.auth-success {
+    color: #27ae60; /* Cor do texto de sucesso */
+    background-color: rgba(39, 174, 96, 0.1); /* Fundo leve */
+}
+
+h2, h3 {
+    color: #2c3e50;
+}
+
+.profile-info {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #666;
+}
+
+.appointments-list {
+    margin-top: 30px;
+    overflow-y: auto; /* Scroll apenas na lista de consultas, se necessário */
+}
+
+.appointment-item {
+    padding: 15px;
+    border: 2px solid #ff7f50;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.appointment-item:hover {
+    transform: translateY(-5px);
+}
+
+.no-appointments {
+    font-size: 1.2rem;
+    color: #999;
+    margin-top: 20px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.botao:hover {
+    background-color: #e06a3f;
+}
+
+/* Modal de edição */
+.edit-modal {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+.edit-modal input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.edit-modal button {
+    background-color: #ff7f50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.edit-modal button:hover {
+    background-color: #e06a3f;
+}

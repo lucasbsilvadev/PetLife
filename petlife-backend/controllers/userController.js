@@ -3,20 +3,20 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 const createUser = async (req, res) => {
-    console.log('Requisição de cadastro recebida:', req.body); // Log da requisição
-    const { username, email, password } = req.body; // Atualiza para incluir email
+    console.log('Requisição de cadastro recebida:', req.body); 
+    const { username, email, password } = req.body; 
 
-    if (!username || !email || !password) { // Atualiza para verificar email
+    if (!username || !email || !password) {
         return res.status(400).json({ error: 'Username, email e password são obrigatórios.' });
     }
 
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = await User.create({ username, email, password: hashedPassword }); // Adiciona email
+        const newUser = await User.create({ username, email, password: hashedPassword }); 
         res.status(201).json(newUser);
     } catch (error) {
         if (error.name === 'SequelizeUniqueConstraintError') {
-            return res.status(409).json({ error: 'Nome de usuário ou email já estão em uso.' }); // Atualiza a mensagem de erro
+            return res.status(409).json({ error: 'Nome de usuário ou email já estão em uso.' }); 
         }
         console.error('Erro ao criar usuário:', error);
         res.status(500).json({ error: 'Erro ao criar usuário.' });
