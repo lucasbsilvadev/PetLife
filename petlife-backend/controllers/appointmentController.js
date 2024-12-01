@@ -1,4 +1,5 @@
 const Appointment = require('../models/Appointment');
+const User = require('../models/User');
 const { Op } = require('sequelize');
 
 const createAppointment = async (req, res) => {
@@ -137,7 +138,7 @@ const getAllAppointments = async (req, res) => {
       }
 
       const appointments = await Appointment.findAll({
-          include: [{ model: User, as: 'User', attributes: ['id', 'name', 'email'] }], // Retorna dados relevantes do usuário
+          include: [{ model: User, as: 'User', attributes: ['id', 'username', 'email'] }], // Alterado 'name' para 'username'
       });
 
       res.status(200).json(appointments);
@@ -146,6 +147,7 @@ const getAllAppointments = async (req, res) => {
       res.status(500).json({ error: 'Erro ao buscar consultas', message: err.message });
   }
 };
+
 module.exports = {
   createAppointment,
   getAppointments,

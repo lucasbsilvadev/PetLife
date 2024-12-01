@@ -12,6 +12,8 @@ router.post('/login', loginUser);
 router.get('/profile', authenticateToken, getProfile); 
 
 // Rota exclusiva para administradores
-
+router.get('/admindashboard', authenticateToken, authenticateAdmin, (req, res) => {
+    res.status(200).json({ message: 'Bem-vindo ao painel de administração.' });
+});
 
 module.exports = router;
