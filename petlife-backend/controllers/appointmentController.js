@@ -133,18 +133,15 @@ const deleteAppointment = async (req, res) => {
 
 const getAllAppointments = async (req, res) => {
   try {
-      if (!req.user.isAdmin) {
-          return res.status(403).json({ error: 'Acesso negado. Apenas administradores podem visualizar todas as consultas.' });
-      }
-
       const appointments = await Appointment.findAll({
-          include: [{ model: User, as: 'User', attributes: ['id', 'username', 'email'] }], // Alterado 'name' para 'username'
+          include: {
+              model: User,
+              attributes: ['username'] // Incluindo o nome de usuário
+          }
       });
-
       res.status(200).json(appointments);
   } catch (err) {
-      console.error('Erro ao buscar consultas:', err);
-      res.status(500).json({ error: 'Erro ao buscar consultas', message: err.message });
+      res.status(500).json({ message: 'Erro ao buscar consultas', error: err.message });
   }
 };
 

@@ -126,7 +126,7 @@ const AdminDashboard = () => {
                             <td>{appointment.breed}</td>
                             <td>{appointment.date}</td>
                             <td>{appointment.time}</td>
-                            <td>{appointment.createdByUser ? appointment.createdByUser : 'Desconhecido'}</td>
+                            <td>{appointment.User ? appointment.User.username : 'Desconhecido'}</td>
                             <td>
                                 <button onClick={() => handleEdit(appointment)}>Editar</button>
                                 <button onClick={() => handleDelete(appointment.id)}>Excluir</button>
