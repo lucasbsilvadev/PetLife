@@ -46,7 +46,6 @@ const createAppointment = async (req, res) => {
       return res.status(400).json({ error: 'Horário indisponível. Já existe uma consulta agendada neste horário.' });
     }
 
-  
     const appointment = await Appointment.create({
       pet_name,
       species,
@@ -66,13 +65,21 @@ const createAppointment = async (req, res) => {
   }
 };
 
+
+
+// Rota para obter consultas do usuário logado
 const getAppointments = async (req, res) => {
   try {
-    const appointments = await Appointment.findAll({ where: { userId: req.user.id } });
-    res.status(200).json(appointments);
+      // Filtrar consultas pelo usuário logado
+      const appointments = await Appointment.findAll({ where: { userId: req.user.id } });
+
+      if (!appointments || appointments.length === 0) {
+          return res.status(404).json({ message: 'Nenhuma consulta encontrada para este usuário.' });
+      }
+
+      res.json(appointments);
   } catch (err) {
-    console.error('Erro ao buscar consultas:', err);
-    res.status(500).json({ error: 'Erro ao buscar consultas', message: err.message });
+      res.status(500).json({ message: 'Erro ao buscar consultas.', error: err.message });
   }
 };
 
@@ -123,9 +130,26 @@ const deleteAppointment = async (req, res) => {
   }
 };
 
+const getAllAppointments = async (req, res) => {
+  try {
+      if (!req.user.isAdmin) {
+          return res.status(403).json({ error: 'Acesso negado. Apenas administradores podem visualizar todas as consultas.' });
+      }
+
+      const appointments = await Appointment.findAll({
+          include: [{ model: User, as: 'User', attributes: ['id', 'name', 'email'] }], // Retorna dados relevantes do usuário
+      });
+
+      res.status(200).json(appointments);
+  } catch (err) {
+      console.error('Erro ao buscar consultas:', err);
+      res.status(500).json({ error: 'Erro ao buscar consultas', message: err.message });
+  }
+};
 module.exports = {
   createAppointment,
   getAppointments,
   updateAppointment,
   deleteAppointment,
+  getAllAppointments,
 };

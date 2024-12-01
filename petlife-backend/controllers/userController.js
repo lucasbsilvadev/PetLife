@@ -24,26 +24,29 @@ const createUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    if (!email || !password) {
-        return res.status(400).json({ error: 'Username e password são obrigatórios.' });
-    }
+  if (!email || !password) {
+      return res.status(400).json({ error: 'Email e senha são obrigatórios.' });
+  }
 
-    try {
-        const user = await User.findOne({ where: { email } });
+  try {
+      const user = await User.findOne({ where: { email } });
 
-        if (!user || !(await bcrypt.compare(password, user.password))) {
-            return res.status(401).json({ error: 'Credenciais inválidas.' });
-        }
+      if (!user || !(await bcrypt.compare(password, user.password))) {
+          return res.status(401).json({ error: 'Credenciais inválidas.' });
+      }
 
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.status(200).json({ token });
-    } catch (error) {
-        console.error('Erro ao fazer login:', error);
-        res.status(500).json({ error: 'Erro ao fazer login.' });
-    }
+      // Gerar o token com o ID e isAdmin
+      const token = jwt.sign({ id: user.id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+      res.status(200).json({ token });
+  } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      res.status(500).json({ error: 'Erro ao fazer login.' });
+  }
 };
+
 
 const getProfile = async (req, res) => {
     try {

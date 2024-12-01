@@ -35,7 +35,7 @@ const Profile = () => {
 
         const fetchAppointments = async (userId) => {
             try {
-                const response = await api.get(`/appointments`, {
+                const response = await api.get(`/appointments/get`, {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }

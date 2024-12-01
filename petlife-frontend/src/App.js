@@ -9,6 +9,7 @@ import Profile from './components/Profile';
 import PharmacySection from './components/PharmacySection';
 import FaqSection from './components/FaqSection';
 import ClinicSection from './components/ClinicSection';
+import AdminDashboard from './components/AdminDashboard';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -27,6 +28,7 @@ function App() {
             <Route path="/farmacia" element={<PharmacySection />} />
             <Route path="/duvidas" element={<FaqSection />} />
             <Route path="/clinica" element={<ClinicSection />} />
+            <Route path="/AdminDashboard" element={<AdminDashboard />} />
           </Routes>
         </main>
         <Footer />

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/navbar.css';
 
-const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
+const Navbar = ({ isAuthenticated, setIsAuthenticated, isAdmin }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -19,6 +19,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
         </li>
         {isAuthenticated ? (
           <>
+            <li><Link to="/AdminDashboard">Admin</Link></li>
             <li><Link to="/profile">Perfil</Link></li>
             <li><Link to="/clinica">Clínica</Link></li>
             <li><Link to="/farmacia">Farmácia</Link></li>

@@ -14,9 +14,17 @@ const authenticateToken = (req, res, next) => {
             return res.status(403).json({ message: 'Token inválido.' });
         }
 
-        req.user = user;  
+        req.user = user;  // Atribui as informações do usuário no objeto `req`
         next();
     });
 };
 
-module.exports = authenticateToken;
+// Middleware para verificar se o usuário é administrador
+const authenticateAdmin = (req, res, next) => {
+    if (!req.user.isAdmin) {
+        return res.status(403).json({ message: 'Acesso negado. Você não tem permissões de administrador.' });
+    }
+    next();
+};
+
+module.exports = { authenticateToken, authenticateAdmin };

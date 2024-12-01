@@ -21,6 +21,10 @@ const User = sequelize.define('User', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    isAdmin: { // Novo campo para controlar privilégios
+        type: Sequelize.TINYINT,  // Usado como booleano
+        defaultValue: 0, // 0 = Usuário comum, 1 = Administrador
+    },
     createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
@@ -31,4 +35,4 @@ const User = sequelize.define('User', {
     },
 });
 
-module.exports = User; 
+module.exports = User;
