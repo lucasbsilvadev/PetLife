@@ -74,7 +74,7 @@ const getAppointments = async (req, res) => {
       // Filtrar consultas pelo usuário logado
       const appointments = await Appointment.findAll({ where: { userId: req.user.id } });
 
-      if (!appointments || appointments.length === 0) {
+      if (!appointments ) {
           return res.status(404).json({ message: 'Nenhuma consulta encontrada para este usuário.' });
       }
 
@@ -113,23 +113,27 @@ const updateAppointment = async (req, res) => {
 };
 
 const deleteAppointment = async (req, res) => {
-  const { id } = req.params; // Obter ID da consulta da URL
-
-  console.log(`Tentando excluir consulta com ID: ${id} do usuário: ${req.user.id}`);
+  const { id } = req.params;
 
   try {
-    const appointment = await Appointment.findOne({ where: { id, userId: req.user.id } });
+    const appointment = await Appointment.findOne({ where: { id } });
+
     if (!appointment) {
       return res.status(404).json({ error: 'Consulta não encontrada.' });
     }
 
+    if (!req.user.isAdmin && appointment.userId !== req.user.id) {
+      return res.status(403).json({ error: 'Você não tem permissão para excluir esta consulta.' });
+    }
+
     await appointment.destroy();
-    res.status(204).send(); // 204 No Content
+    res.status(204).send();
   } catch (err) {
     console.error('Erro ao excluir consulta:', err);
     res.status(500).json({ error: 'Erro ao excluir consulta', message: err.message });
   }
 };
+
 
 const getAllAppointments = async (req, res) => {
   try {

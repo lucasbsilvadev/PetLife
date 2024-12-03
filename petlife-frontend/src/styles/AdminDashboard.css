@@ -43,7 +43,7 @@ th, td {
 }
 
 th {
-    background-color: #007bff;
+    background-color: #e06a3f;
     color: white;
     font-weight: bold;
 }
@@ -58,7 +58,7 @@ tr:hover {
 
 button {
     padding: 8px 12px;
-    background-color: #007bff;
+    background-color: #e06a3f;
     color: white;
     border: none;
     border-radius: 4px;
@@ -68,7 +68,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e06a3f;
 }
 
 form {
@@ -87,9 +87,10 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #e06a3f;
 }
 
 input[type="text"] {
     font-size: 16px;
 }
+
