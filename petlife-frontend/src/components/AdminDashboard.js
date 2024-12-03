@@ -33,7 +33,7 @@ const AdminDashboard = () => {
     const handleDelete = async (appointmentId) => {
         try {
             const token = localStorage.getItem('token'); // Recupera o token do localStorage
-            await api.delete(`/appointments/${appointmentId}` {
+            await api.delete(`/appointments/${appointmentId}`, {
                 headers: {
                     Authorization: `Bearer ${token}` // Passa o token no header
                 }
