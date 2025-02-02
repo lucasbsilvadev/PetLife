@@ -1,0 +1,128 @@
+.section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #f7f7f7;
+  border-radius: 15px; /* Bordas arredondadas para suavizar o design */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar a seção */
+  margin-bottom: 40px;
+  transition: transform 0.3s ease-in-out; /* Animação ao passar o mouse */
+}
+
+.section-container:hover {
+  transform: translateY(-10px); /* Eleva a seção quando o mouse passa por cima */
+}
+
+.section-container:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.text-content {
+  max-width: 50%;
+  padding-right: 20px;
+}
+
+.section-image {
+  max-width: 45%; /* Ajuste para garantir proporção adequada */
+  height: auto;
+  border-radius: 10px; /* Bordas arredondadas para a imagem */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Espaçamento entre letras */
+}
+
+.paragrafo {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.botao {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #ff7f50;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para o botão */
+  font-size: 1.1rem;
+}
+
+.botao:hover {
+  background-color: #e06a3f;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
+}
+
+.botao-transparente {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: transparent;
+  color: #ff7f50;
+  border: 2px solid #ff7f50;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  font-size: 1.1rem;
+}
+
+.botao-transparente:hover {
+  background-color: #ff7f50;
+  color: white;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra no hover */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .section-container {
+    padding: 30px;
+  }
+
+  .text-content {
+    max-width: 60%;
+  }
+
+  .section-image {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    box-shadow: none; /* Remove sombra para dispositivos menores */
+  }
+
+  .text-content, .section-image {
+    max-width: 100%;
+  }
+
+  .section-image {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .paragrafo {
+    font-size: 1rem;
+  }
+
+  .botao, .botao-transparente {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

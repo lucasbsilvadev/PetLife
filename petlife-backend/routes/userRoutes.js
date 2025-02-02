@@ -1,14 +1,19 @@
 const express = require('express');
 const { createUser, loginUser, getProfile } = require('../controllers/userController');
-const authenticateToken = require('../middlewares/auth'); // Importando o middleware
+const { authenticateToken, authenticateAdmin } = require('../middlewares/auth'); 
 const User = require('../models/User');
 
 const router = express.Router();
 
-router.post('/register', createUser); // Cadastro de usuário
-router.post('/login', loginUser); // Login de usuário
+router.post('/register', createUser); 
+router.post('/login', loginUser); 
 
-// Proteger essa rota para pegar dados do usuário
-router.get('/profile', authenticateToken, getProfile); // Rota para obter perfil do usuário
+// Proteger a rota para pegar dados do usuário
+router.get('/profile', authenticateToken, getProfile); 
+
+// Rota exclusiva para administradores
+router.get('/admindashboard', authenticateToken, authenticateAdmin, (req, res) => {
+    res.status(200).json({ message: 'Bem-vindo ao painel de administração.' });
+});
 
 module.exports = router;

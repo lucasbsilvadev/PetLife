@@ -1,0 +1,53 @@
+/* Navbar compacta */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 65px; /* Altura reduzida da navbar */
+  display: flex;
+  align-items: center;
+  padding: 0 20px; /* Espaço lateral reduzido */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  padding: 0 10px; /* Reduz o espaço lateral entre os itens */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem; /* Tamanho de fonte ajustado para ficar mais compacto */
+  padding: 8px 12px;
+}
+
+.navbar button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navbar button:hover {
+  background-color: #ff1a1a;
+}
+
+/* Para garantir que o conteúdo abaixo da navbar não fique oculto */
+main {
+  padding-top: 60px; /* Espaço para compensar a altura da navbar */
+}

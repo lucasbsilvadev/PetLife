@@ -19,6 +19,7 @@ sequelize.sync()
 app.use('/api/users', userRoutes);
 app.use('/api/appointments', appointmentRoutes);
 
+
 app.get('/', (req, res) => res.send('API rodando!'));
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

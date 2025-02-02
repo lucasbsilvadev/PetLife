@@ -1,0 +1,48 @@
+.auth-container {
+    /* max-width: 400px; Limite a largura do formulário */
+    margin: auto; /* Centraliza o formulário */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white; /* Cor de fundo do formulário */
+}
+
+.auth-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px; /* Espaço entre título e formulário */
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos em coluna */
+}
+
+.auth-input {
+    margin-bottom: 15px; /* Espaço entre os inputs */
+    padding: 10px; /* Espaço interno nos inputs */
+    border: 1px solid #ccc; /* Borda dos inputs */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+.auth-error {
+    color: #e74c3c; /* Cor do texto de erro */
+    text-align: center; /* Centraliza o texto de erro */
+    margin-bottom: 15px; /* Espaço abaixo do texto de erro */
+}
+
+.botao {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Transição suave na cor de fundo */
+}
+
+.botao:hover {
+    background-color: #c0392b; /* Cor do botão ao passar o mouse */
+}
